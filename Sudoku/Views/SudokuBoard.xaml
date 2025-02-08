@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sudoku.Views.SudokuBoard">
+    <ContentPage.Content>
+        <ScrollView
+            
+            >
+            <VerticalStackLayout
+                Margin="20"
+                >
+                <Label
+                    Text="Sudoku"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    FontFamily="NunitoFont"
+                    FontAttributes="Bold"
+                    Margin="0,10,0,0"
+                    FontSize="50"
+                    />
+                <Grid
+                    x:Name="SudokuGrid"
+                    RowSpacing="1"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    ColumnSpacing="1"
+                    Margin="5,45"
+                    BackgroundColor="Gray"
+                    >
+                    
+                </Grid>
+                <HorizontalStackLayout
+                    HorizontalOptions="Center"
+                    Margin="10"
+                    Spacing="10"
+                    >
+                    <Button HeightRequest="30" ImageSource="check.png"
+                            x:Name="BtnCheck"
+                            Clicked="BtnCheck_OnClicked"
+                            />
+                    <Button HeightRequest="30" ImageSource="icon.png"/>
+                    <Button HeightRequest="30" ImageSource="search.png"/>
+                    <Button HeightRequest="30" ImageSource="trash.png"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
