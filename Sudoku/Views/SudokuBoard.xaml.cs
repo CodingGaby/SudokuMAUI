@@ -86,13 +86,36 @@ public partial class SudokuBoard : ContentPage
 
     private void BtnCheck_OnClicked(object? sender, EventArgs e)
     {
-        
-        for (int i = 0; i < 9; i++)
+        if (!CheckBoard(e))
         {
-            for (int j = 0; j < 9; j++)
+            // Mostrar mensaje y salir de los dos bucles
+            DisplayAlert("Datos vacíos", "Iralo todo pendejo el negro", "OK");
+        }
+        else
+        {
+            DisplayAlert("Todo correcto", "Todo chido brou, don worri", "OK");
+        }
+    }
+
+    private bool CheckBoard(EventArgs e)
+    {
+        for (int i = 0; i < 9; i++) // Iterar sobre las filas
+        {
+            for (int j = 0; j < 9; j++) // Iterar sobre las columnas
             {
-                SudokuGrid.Children.OfType<Entry>().FirstOrDefault(e => e.)
+                // Calcular el índice del Entry dentro de SudokuGrid
+                var entry = SudokuGrid.Children.OfType<Entry>()
+                    .FirstOrDefault(e => Grid.GetRow(e) == i && Grid.GetColumn(e) == j);
+
+                if (entry != null)
+                {
+                    if (string.IsNullOrEmpty(entry.Text))
+                    {
+                        return false;
+                    }
+                }
             }
         }
+        return true;
     }
 }
